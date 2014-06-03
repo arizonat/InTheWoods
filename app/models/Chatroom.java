@@ -19,7 +19,17 @@ public class Chatroom {
 				String message_text = message.get("message").asText();
 				sendMessage(from, message_text);
 			}
+			
 		});
+		
+		//TODO: Need a method to logout and close sockets properly
+		in.onClose(new Callback0() {
+			@Override
+			public void invoke() throws Throwable {
+				System.out.println("I'm not sure why this decided to close...");
+			}
+		});
+		
 		socketList.add(out);
 		
 		sendMessage("chatroom","Say hello to " + username + "!");
@@ -29,6 +39,7 @@ public class Chatroom {
 		for (WebSocket.Out<JsonNode> out : (List<WebSocket.Out<JsonNode>>)socketList){
 			JsonNode message = Json.parse("{\"username\":\""+username+"\" , \"message\":\""+message_text+"\" }");
 			out.write(message);
+			System.out.println("Still okay?");
 		}
 	}
 }
