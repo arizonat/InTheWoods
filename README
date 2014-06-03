@@ -1,4 +1,7 @@
-This is your new Play application
-=====================================
+This is a Java Play 2.0 chat application.
 
-This file will be packaged with your application, when using `play dist`.
+It is built using WebSockets. There is no database (nothing is stored).
+
+Admittedly, the code is very similar to the Play sample code (I actually stumbled on it later)...
+
+A live demo is located here: http://dry-inlet-4761.herokuapp.com/
